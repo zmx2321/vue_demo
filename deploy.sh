@@ -7,7 +7,7 @@ set -e
 yarn build
 
 # 进入生成的文件夹
-cd vue_empty
+cd vue_demo
 
 git pull
 git init
@@ -16,6 +16,6 @@ git commit -m 'deploy'
 
 # 如果发布到 https://<USERNAME>.github.io  填写你刚刚创建的仓库地址
 # git push -f https://github.com/zmx2321/blog.git master:gh-pages
-git push -f git@github.com:zmx2321/vue_empty.git master:gh-pages
+git push -f git@github.com:zmx2321/vue_demo.git master:gh-pages
 
 cd -
