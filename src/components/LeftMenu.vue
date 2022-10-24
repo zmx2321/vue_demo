@@ -141,6 +141,15 @@ export default {
             { path: "/echartsMap5", name: "echartsMap5" },
           ]
         },
+        // mapbox
+        {
+          icon: "fa fa-bullseye",
+          name: "mapbox",
+          path: "mapbox",
+          children: [
+            { path: "/mapbox1", name: "mapbox1" },
+          ]
+        },
 
         // ...
         {

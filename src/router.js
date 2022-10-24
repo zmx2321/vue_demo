@@ -236,6 +236,12 @@ const routes = [
         name: "echartsMap5",
         component: resolve => require(['@/views/test/echartsMap/echartsMap5'], resolve)
       },
+      // mapboxtest
+      {
+        path: '/mapbox1',
+        name: "mapbox1",
+        component: resolve => require(['@/views/test/mapbox/mapbox1'], resolve)
+      },
 
       /**
        * 超市管理
