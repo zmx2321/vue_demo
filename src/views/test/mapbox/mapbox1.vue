@@ -1,5 +1,7 @@
 <template>
   <section class="glmap_wrap">
+    <tab ref="tabRef" class="map_tab f-fl" :tabList="tabListData"  @checkTab="checkTab" v-if="tabListData.length !== 0" />
+
     <div id='glMap' class="glMap_cont" style='width: 100%; height: 100%;'></div>
   </section>
 </template>
@@ -8,12 +10,19 @@
 // map-core
 import * as mapUtils from './mapUtils'
 
+import Tab from './Tab'
+
 export default {
   name: "mapbox1",
+
+  components: {
+    Tab
+  },
 
   data() {
     return {
       glMap: null,
+      tabListData: ['浙江0', '浙江', '上海', '江苏', '新疆', '广西', '四川', '江西'],
       mainPopupData: {
         mpdt0: 'xxx',
       }, 
@@ -89,6 +98,18 @@ export default {
   },
 
   methods: {
+    /**
+     * tools
+     */
+    // 点击选项卡
+    checkTab(val) {
+      // console.log(val)
+
+      this.tabCurrent = val
+
+      this.initMap()
+    },
+
     /**
      * map init
      */
@@ -273,6 +294,31 @@ export default {
       this.glMap = mapUtils.shanghaiMap()
       mapUtils.renderGeoToShangHai(this.glMap)
     },
+    // 初始化江苏
+    initJiangSu() {
+      this.glMap = mapUtils.jiangsuMap()
+      mapUtils.renderGeoToJiangSu(this.glMap)
+    },
+    // 初始化新疆
+    initXingJiang() {
+      this.glMap = mapUtils.xinjiangMap()
+      mapUtils.renderGeoToXingJiang(this.glMap)
+    },
+    // 初始化广西
+    initGuangXi() {
+      this.glMap = mapUtils.guangxiMap()
+      mapUtils.renderGeoToGuangXi(this.glMap)
+    },
+    // 初始化四川
+    initSichuan() {
+      this.glMap = mapUtils.sichuanMap()
+      mapUtils.renderGeoToSichuan(this.glMap)
+    },
+    // 初始化江西
+    initJiangxi() {
+      this.glMap = mapUtils.jiangxiMap()
+      mapUtils.renderGeoToJiangXi(this.glMap)
+    },
 
     /**
      * 业务
@@ -337,6 +383,13 @@ export default {
   width: 100%;
   height: 100%;
   background: #091f3f;
+
+  .map_tab {
+    position: absolute;
+    left: 30px;
+    top: 30px;
+    z-index: 1;
+  }
 
   .glMap_cont {
     background: #000;
