@@ -3,7 +3,7 @@
  */
  import maplibregl from 'maplibre-gl';
 
- import { glMapConfigSingle } from './mapData/mapConfig'  // config
+ import { glMapConfig, glMapConfigSingle, glMapConfigTest } from './mapData/mapConfig'  // config
 
 import zhejiangIndexGeo from './mapData/geoData/zhejiangIndex';  // 首页浙江
 import zhejiangGeo from './mapData/geoData/zhejiang';  // 普通浙江
@@ -18,7 +18,7 @@ import jiangxiGeo from './mapData/geoData/jiangxi';  // 江西
  * 地图工具
  * ****************************
  */
-// 初始化地图  return mapInitTool(glMapConfigSingle, zhejiangGeo)
+// 初始化地图
 const mapInitTool = (mapconfig, geoData, center, zoom) => {
     return new maplibregl.Map(mapconfig('glMap', geoData, center, zoom));  // 初始化地图
 }
@@ -62,6 +62,21 @@ const addMapLayer = (map, geoData, idName , color, opacity)=> {
         'paint': {
             'fill-color': color,  // fill颜色
             'fill-opacity': opacity ? opacity : 0.7  // fill透明度
+        }
+    });
+    map.addLayer({
+        'id': idName + '_line',
+        'type': 'line',
+        'source': idName,
+        'layout': {},
+        "layout": {
+            "line-join": "round",
+            "line-cap": "round"
+        },
+        "paint": { 
+            "line-color": '#fff',
+            "line-width": 1,
+            "line-dasharray": [2, 4],
         }
     });
 }
@@ -128,22 +143,22 @@ export const renderGeoToZheJiangIndex = (map, next) => {
                 case '浙北':
                     // console.log(name, item)
                     // addMapLayer(map, item, 'zhebei', '#1B346A')
-                    addMapLayer(map, item, 'zhebei', '#275195', 1)
+                    addMapLayer(map, item, 'zhebei', '#206B70', .4)
                     break
                 case '浙南':
                     // console.log(name, item)  // 浙东
                     // addMapLayer(map, item, 'zhenan', '#f00')
-                    addMapLayer(map, item, 'zhenan', '#3C6242')
+                    addMapLayer(map, item, 'zhenan', '#35643C')
                     break
                 case '浙西':
                     // console.log(name, item)  // 浙南
                     // addMapLayer(map, item, 'zhexi', '#f00')
-                    addMapLayer(map, item, 'zhexi', '#662C22', .6)
+                    addMapLayer(map, item, 'zhexi', '#621E1B', .6)
                     break
                 case '浙东':
                     // console.log(name, item)  // 浙西
                     // addMapLayer(map, item, 'zhedong', '#f00')
-                    addMapLayer(map, item, 'zhedong', '#695B31')
+                    addMapLayer(map, item, 'zhedong', '#736437')
                     break
             }
         }, 0)
