@@ -188,7 +188,7 @@ export default {
       // reload
       this.glMap.on('load', () => {
         this.$nextTick(()=> {
-          // this.getImgMarker()  // 设置图片标注
+          this.getImgMarker()  // 设置图片标注
         })
       });
     },

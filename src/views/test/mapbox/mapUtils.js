@@ -143,22 +143,22 @@ export const renderGeoToZheJiangIndex = (map, next) => {
                 case '浙北':
                     // console.log(name, item)
                     // addMapLayer(map, item, 'zhebei', '#1B346A')
-                    addMapLayer(map, item, 'zhebei', '#206B70', .4)
+                    addMapLayer(map, item, 'zhebei', '#73BBBF', .4)
                     break
                 case '浙南':
                     // console.log(name, item)  // 浙东
                     // addMapLayer(map, item, 'zhenan', '#f00')
-                    addMapLayer(map, item, 'zhenan', '#35643C')
+                    addMapLayer(map, item, 'zhenan', '#C29E35')
                     break
                 case '浙西':
                     // console.log(name, item)  // 浙南
                     // addMapLayer(map, item, 'zhexi', '#f00')
-                    addMapLayer(map, item, 'zhexi', '#621E1B', .6)
+                    addMapLayer(map, item, 'zhexi', '#7BAD84', .6)
                     break
                 case '浙东':
                     // console.log(name, item)  // 浙西
                     // addMapLayer(map, item, 'zhedong', '#f00')
-                    addMapLayer(map, item, 'zhedong', '#736437')
+                    addMapLayer(map, item, 'zhedong', '#C6716D')
                     break
             }
         }, 0)
