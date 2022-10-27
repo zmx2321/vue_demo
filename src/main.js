@@ -20,6 +20,11 @@ import * as echarts from "echarts";
 import 'echarts-gl'
 // console.log(echarts)
 
+import VueQuillEditor  from 'vue-quill-editor'  //富文本
+import 'quill/dist/quill.core.css'
+import 'quill/dist/quill.snow.css'
+import 'quill/dist/quill.bubble.css'
+
 // SpreadJS
 import "@grapecity/spread-sheets/styles/gc.spread.sheets.excel2016colorful.css";
 import "@grapecity/spread-sheets-vue";
@@ -36,6 +41,7 @@ Vue.use(ElementUI);
 Vue.use(i18n);
 Vue.component("CountUp", CountUp); 
 // Vue.component("ICountUp", ICountUp); 
+Vue.use(VueQuillEditor);
 
 //挂载（使其可以在各个组件使用）
 Vue.prototype.axios = axios;
