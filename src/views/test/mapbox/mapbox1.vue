@@ -10,6 +10,16 @@
 // map-core
 import * as mapUtils from './mapUtils'
 
+import {
+  pointData0, 
+  pointData1, pointData2, 
+  pointData3, pointData3sh, pointData3js,
+  pointData4, pointData4js, pointData4xj, pointData4jx,
+  pointData5, pointData5gx,
+  pointData6, pointData6sc, pointData6gx,
+  pointData7
+} from './mapData/pointData'
+
 import Tab from './Tab'
 
 export default {
@@ -229,6 +239,15 @@ export default {
     },
     // 设置图片标注
     getImgMarker() {
+      console.log(
+        // pointData0, 
+        // pointData1, pointData2, 
+        // pointData3, pointData3sh, pointData3js,
+        // pointData4, pointData4js, pointData4xj, pointData4jx,
+        // pointData5, pointData5gx,
+        // pointData6, pointData6sc, pointData6gx,
+        // pointData7
+      )
       /* this.mapDataList.forEach(item=> {
         switch(item.newcompany_id) {
           case '3':

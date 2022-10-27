@@ -179,7 +179,7 @@ export default {
   computed: {
     activeIndex() {
       let pathName = this.$route.path.replace('/', '');
-      console.log(pathName)
+      // console.log(pathName)
 
       switch (pathName) {
         case "home":
