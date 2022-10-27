@@ -174,15 +174,16 @@ export default {
      */
     // 绑定点击事件
     glmapEvent() {
-      // 监听地图缩放事件
+      /* // 监听地图缩放事件
       this.glMap.on('moveend', e => {
       });
       // 移入地图
       this.glMap.on('mouseover', e => {
-      });
+      }); */
 
       // 地图点击事件
       this.glMap.on('click', e => {
+        this.clickMap(e.lngLat)
       });
 
       // reload
@@ -191,6 +192,10 @@ export default {
           this.getImgMarker()  // 设置图片标注
         })
       });
+    },
+    // 点击地图
+    clickMap(lngLat) {
+      console.log(lngLat)
     },
     
     /**
@@ -224,7 +229,7 @@ export default {
     },
     // 设置图片标注
     getImgMarker() {
-      this.mapDataList.forEach(item=> {
+      /* this.mapDataList.forEach(item=> {
         switch(item.newcompany_id) {
           case '3':
             this.setType0Marker(item)  // type0标注
@@ -232,7 +237,7 @@ export default {
           default:
             this.setMainMarker(item)  // 首页
         }
-      })
+      }) */
     },
     // 配置地图标注
     setMainMarker(item) {
