@@ -85,6 +85,12 @@ const routes = [
         name: "test6",
         component: resolve => require(['@/views/test/Test6'], resolve)
       },
+      // richText
+      {
+        path: '/quill-editor',
+        name: "quill-editor",
+        component: resolve => require(['@/views/test/richText/quillEditor'], resolve)
+      },
       // maptest
       {
         path: '/test_map',

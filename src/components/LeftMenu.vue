@@ -61,6 +61,15 @@ export default {
             { path: "/test6", name: "test6" },
           ]
         },
+        // richText
+        {
+          icon: "fa fa-bullseye",
+          name: "richtext",
+          path: "richtext",
+          children: [
+            { path: "/quill-editor", name: "quill-editor" },
+          ]
+        },
         // testmap
         {
           icon: "fa fa-bullseye",

@@ -25,6 +25,8 @@ import 'quill/dist/quill.core.css'
 import 'quill/dist/quill.snow.css'
 import 'quill/dist/quill.bubble.css'
 
+import quillEditorTool from './components/richText/quillEditorTool'  // 富文本编辑器  // 全局注册组件
+
 // SpreadJS
 import "@grapecity/spread-sheets/styles/gc.spread.sheets.excel2016colorful.css";
 import "@grapecity/spread-sheets-vue";
@@ -39,9 +41,12 @@ Vue.config.productionTip = false
 // 全局注册
 Vue.use(ElementUI);
 Vue.use(i18n);
+Vue.use(VueQuillEditor);
+
 Vue.component("CountUp", CountUp); 
 // Vue.component("ICountUp", ICountUp); 
-Vue.use(VueQuillEditor);
+Vue.component("quillEditorTool", quillEditorTool); 
+
 
 //挂载（使其可以在各个组件使用）
 Vue.prototype.axios = axios;
