@@ -38,11 +38,9 @@
 </template>
 
 <script>
-  import Quill from 'vue-quill-editor'
+/*   import Quill from 'vue-quill-editor'
 
-  import "@/assets/less/font.less"
-
-  let fonts = [ 'Microsoft-YaHei','SimHei','SimSun', 'KaiTi', 'FangSong', 'Arial', 'sans-serif'];
+  // let fonts = ['SimSun', 'SimHei','Microsoft-YaHei','KaiTi','FangSong','Arial','sans-serif'];
   Quill.Quill.imports['formats/font'].whitelist=fonts;
   Quill.Quill.register(Quill.Quill.imports['formats/font']);
 
@@ -55,17 +53,39 @@ const toolbarOptions = [
   [{ script: "sub" }, { script: "super" }], // 上下标
   [{ indent: "-1" }, { indent: "+1" }], // 缩进
   [{ direction: "rtl" }], // 文本方向
-//   [{ size: ["small", false, "large", "huge"] }], // 字体大小
+  [{ size: ["small", false, "large", "huge"] }], // 字体大小
   [{ header: [1, 2, 3, 4, 5, 6, false] }], //几级标题
   [{ color: [] }, { background: [] }], // 字体颜色，字体背景颜色
-  [{ font: fonts }], //字体
+  [{ font: ['Microsoft-YaHei'] }], //字体
   [{ align: [] }], //对齐方式
   ["clean"], //清除字体样式
   // ["image", "video"], //上传图片、上传视频
-];
+]; */
+
+
+import { quillEditor, Quill } from 'vue-quill-editor';
+import 'quill/dist/quill.core.css'
+import 'quill/dist/quill.snow.css'
+import 'quill/dist/quill.bubble.css'
+
+//自定义样式一定要在原插件css下面引入
+import "@/assets/less/font.less"
+// 自定义字体大小
+var sizes = [false,"14px", "16px", "18px", "20px", "22px", "26px", "28px", "30px"];
+var Size = Quill.import("formats/size");
+Size.whitelist = sizes;
+// 自定义字体
+var fonts = [ 'Microsoft-YaHei','SimHei','SimSun', 'KaiTi', 'FangSong', 'Arial', 'sans-serif']
+var Font = Quill.import('formats/font')
+Font.whitelist = fonts
+Quill.register(Font, true)
 
 export default {
   name: "editor-tool",
+
+  components: {
+        quillEditor,
+    },
 
   data() {
     return {
@@ -82,7 +102,21 @@ export default {
             placeholder: '',
             theme: 'snow',  // or 'bubble'
             modules: {
-                toolbar: {
+              toolbar: [
+                        ['bold', 'italic', 'underline', 'strike'],        // 加粗，斜体，下划线，删除线
+                        ['blockquote', 'code-block'],                      //引用，代码块
+                        [{ 'header': 1 }, { 'header': 2 }],               // 几级标题
+                        [{ 'list': 'ordered' }, { 'list': 'bullet' }],     // 有序列表，无序列表
+                        [{ 'script': 'sub' }, { 'script': 'super' }],      // 下角标，上角标
+                        [{ 'indent': '-1' }, { 'indent': '+1' }],          // 缩进
+                        [{ 'direction': 'rtl' }],                         // 文字输入方向
+                        [{ 'size': sizes }],  // 字体大小
+                        [{ 'header': [1, 2, 3, 4, 5, 6, false] }],// 标题
+                        [{ 'color': [] }, { 'background': [] }],          // 颜色选择
+                        [{ 'font': fonts }],// 字体
+                        [{ 'align': [] }], // 居中
+                    ]
+                /* toolbar: {
                     container: toolbarOptions,  // 工具栏
                     handlers: {
                         'image': function (value) {
@@ -95,7 +129,7 @@ export default {
                             }
                         }
                     }
-                }
+                } */
             }
         },
 
@@ -117,7 +151,7 @@ export default {
   },
 
   methods: {
-    /** 
+    /**
      * 纯文本
      */
     setEditTxtData() {
@@ -237,8 +271,6 @@ export default {
 </script>
 
 <style lang="less" scoped>
-// @import "../../assets/less/font.less";
-
 #editor-tool {
     .quil_wrap {
         .avatar-uploader {
