@@ -70,8 +70,8 @@ AMap.initAMapApiLoader({
   v: '1.4.4',
   uiVersion: '1.0.11'
 })
-let amapManager = new AMap.AMapManager();
-Vue.prototype.amapManager = amapManager;
+// let amapManager = new AMap.AMapManager();
+// Vue.prototype.amapManager = amapManager;
 // console.log(amapManager)
 
 new Vue({

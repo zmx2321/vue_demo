@@ -77,7 +77,7 @@ export default {
 
       // 必须是异步
       setTimeout(() => {
-        console.log("amapview", window.amapview)
+        console.log("amapview", window.amapview, this.amapManager)
 
         window.amapview.on('click', e => {
           // console.log("地图点击事件", e)
