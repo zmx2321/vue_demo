@@ -244,9 +244,15 @@ const routes = [
       },
       // mapboxtest
       {
-        path: '/mapbox1',
+        path: '/mapbox/mapbox1',
         name: "mapbox1",
         component: resolve => require(['@/views/test/mapbox/mapbox1'], resolve)
+      },
+      // Univer
+      {
+        path: '/univer/univer1',
+        name: "univer1",
+        component: resolve => require(['@/views/test/univer/univer1'], resolve)
       },
 
       /**

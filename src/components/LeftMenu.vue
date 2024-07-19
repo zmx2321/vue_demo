@@ -156,7 +156,16 @@ export default {
           name: "mapbox",
           path: "mapbox",
           children: [
-            { path: "/mapbox1", name: "mapbox1" },
+            { path: "/mapbox/mapbox1", name: "mapbox1" },
+          ]
+        },
+        // univer
+        {
+          icon: "fa fa-bullseye",
+          name: "univer",
+          path: "univer",
+          children: [
+            { path: "/univer/univer1", name: "univer1" },
           ]
         },
 
